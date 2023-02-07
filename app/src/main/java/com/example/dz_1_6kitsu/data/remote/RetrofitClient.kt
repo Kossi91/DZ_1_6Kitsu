@@ -1,6 +1,7 @@
 package com.example.dz_1_6kitsu.data.remote
 
 import com.example.dz_1_6kitsu.data.remote.api.AnimeApiService
+import com.example.dz_1_6kitsu.data.remote.api.MangaApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,4 +26,6 @@ class RetrofitClient {
     private fun provideLoggingInterceptor() = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     fun provideAnimeApiService() = retrofitClient.create(AnimeApiService::class.java)
+
+    fun provideMangaApiService() = retrofitClient.create(MangaApiService::class.java)
 }
