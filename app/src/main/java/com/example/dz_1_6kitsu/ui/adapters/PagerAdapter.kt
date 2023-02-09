@@ -16,8 +16,7 @@ class PagerAdapter(fragmentActivity: FragmentActivity): FragmentStateAdapter(fra
     override fun createFragment(position: Int): Fragment {
         return when(position){
             0 -> AnimeFragment()
-            1 -> MangaFragment()
-            else -> AnimeFragment()
+            else -> MangaFragment()
         }
     }
 }

@@ -9,13 +9,13 @@ import retrofit2.http.Query
 
 interface MangaApiService {
 
-    @GET("manga")
+    @GET("edge/manga")
     suspend fun getManga(
         @Query("page[limit]") limit: Int,
         @Query("page[offset]") offset: Int
     ): MangaResponce<Manga>
 
-    @GET("manga/{id}")
+    @GET("edge/manga/{id}")
     suspend fun getDetailManga(
         @Path("id") id: Int
     ): MangaDetail

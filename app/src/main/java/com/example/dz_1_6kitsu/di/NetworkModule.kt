@@ -22,4 +22,8 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideMangaApiService(retrofitClient: RetrofitClient) = retrofitClient.provideMangaApiService()
+
+    @Singleton
+    @Provides
+    fun provideSignInApiService(retrofitClient: RetrofitClient) = retrofitClient.providerSignInApiService()
 }

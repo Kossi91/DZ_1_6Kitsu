@@ -3,37 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/pagerFragment">
+    app:startDestination="@id/homeFlowFragment">
 
     <fragment
-        android:id="@+id/detailAnimeFragment"
-        android:name="com.example.dz_1_6kitsu.ui.fragments.anime.detail.DetailAnimeFragment"
-        android:label="fragment_detail_anime"
-        tools:layout="@layout/fragment_detail_anime" >
-        <argument
-            android:name="id"
-            app:argType="integer"
-            android:defaultValue="0" />
+        android:id="@+id/singinFlowFragment"
+        android:name="com.example.dz_1_6kitsu.ui.fragments.singin.flow.SinginFlowFragment"
+        android:label="fragment_singin_flow"
+        tools:layout="@layout/fragment_singin_flow" >
+        <action
+            android:id="@+id/action_singinFlowFragment_to_homeFlowFragment"
+            app:destination="@id/homeFlowFragment"
+            app:popUpTo="@id/nav_graph.xml"/>
     </fragment>
     <fragment
-        android:id="@+id/mangaDetailFragment"
-        android:name="com.example.dz_1_6kitsu.ui.fragments.manga.detail.MangaDetailFragment"
-        android:label="MangaDetailFragment" >
-        <argument
-            android:name="id"
-            app:argType="integer"
-            android:defaultValue="0" />
-    </fragment>
-    <fragment
-        android:id="@+id/pagerFragment"
-        android:name="com.example.dz_1_6kitsu.ui.fragments.home.HomeFragment"
-        android:label="fragment_pager"
-        tools:layout="@layout/fragment_pager" >
-        <action
-            android:id="@+id/action_pagerFragment_to_detailAnimeFragment"
-            app:destination="@id/detailAnimeFragment" />
-        <action
-            android:id="@+id/action_pagerFragment_to_mangaDetailFragment"
-            app:destination="@id/mangaDetailFragment" />
-    </fragment>
+        android:id="@+id/homeFlowFragment"
+        android:name="com.example.dz_1_6kitsu.ui.fragments.home.flow.HomeFlowFragment"
+        android:label="fragment_home_flow"
+        tools:layout="@layout/fragment_home_flow" />
 </navigation>

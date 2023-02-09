@@ -9,6 +9,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AnimeViewModel @Inject constructor(private val repository: AnimeRepository) : BaseViewModel() {
-
      fun getAnime() = repository.getAnime().cachedIn(viewModelScope)
 }

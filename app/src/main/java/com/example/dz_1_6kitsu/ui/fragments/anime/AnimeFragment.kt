@@ -6,12 +6,9 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.dz_1_6kitsu.R
 import com.example.dz_1_6kitsu.base.BaseFragment
-import com.example.dz_1_6kitsu.data.models.anime.Anime
 import com.example.dz_1_6kitsu.databinding.FragmentAnimeBinding
-import com.example.dz_1_6kitsu.extensions.toast
 import com.example.dz_1_6kitsu.ui.adapters.AnimeAdapter
 import com.example.dz_1_6kitsu.ui.fragments.home.HomeFragmentDirections
-import com.example.dz_1_6kitsu.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -27,9 +24,9 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
     }
 
     private fun onClickListener(id: String) {
-        findNavController().navigate(
-            HomeFragmentDirections.actionPagerFragmentToDetailAnimeFragment(id.toInt())
-        )
+       findNavController().navigate(
+           HomeFragmentDirections.actionHomeFragmentToDetailAnimeFragment2(id.toInt())
+       )
     }
 
     override fun setupSubscribes() {

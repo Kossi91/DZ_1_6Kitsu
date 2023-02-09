@@ -1,5 +1,6 @@
 package com.example.dz_1_6kitsu.ui.fragments.manga.detail
 
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -8,7 +9,6 @@ import com.example.dz_1_6kitsu.R
 import com.example.dz_1_6kitsu.base.BaseFragment
 import com.example.dz_1_6kitsu.databinding.FragmentMangaDetailBinding
 import com.example.dz_1_6kitsu.extensions.toast
-import com.example.dz_1_6kitsu.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,22 +23,19 @@ class MangaDetailFragment : BaseFragment<FragmentMangaDetailBinding ,MangaDetail
     }
 
     private fun subscribeToMangaDetail() = with(binding) {
-        viewModel.getDetailManga(args.id).observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Error -> {
-                    toast("Ошибка")
-                }
-                is Resource.Loading -> {
-                    toast("Загрузка...")
-                }
-                is Resource.Success -> {
+        viewModel.getDetailManga(args.id).subscribe(
+            onError = {
+                Toast.makeText(requireContext(), "dfs", Toast.LENGTH_SHORT).show()
+            },
+            onSuccess = {
+                it.data.let {
                     Glide.with(ivPosterManga.context)
-                        .load(it.data?.data?.attributes?.posterImage?.original)
+                        .load(it.attributes.posterImage.original)
                         .into(ivPosterManga)
-                    tvNameManga.text = it.data?.data?.attributes?.titles?.enJp
+                    tvNameManga.text = it.attributes.titles.enJp
                     toast("Успешно")
                 }
             }
-        }
+        )
     }
 }
