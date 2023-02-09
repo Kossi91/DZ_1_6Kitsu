@@ -1,4 +1,4 @@
-package com.example.dz_1_6kitsu.data.models.manga_models
+package com.example.dz_1_6kitsu.data.models.manga
 
 import com.google.gson.annotations.SerializedName
 

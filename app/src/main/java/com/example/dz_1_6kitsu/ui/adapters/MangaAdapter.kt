@@ -2,21 +2,22 @@ package com.example.dz_1_6kitsu.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dz_1_6kitsu.data.models.manga_models.Manga
+import com.example.dz_1_6kitsu.data.models.manga.Manga
 import com.example.dz_1_6kitsu.databinding.ItemMangaBinding
 
-class MangaAdapter(private val onClickListener: (id: String) -> Unit): ListAdapter<Manga, MangaAdapter.MangeViewHolder>(diffUtil) {
+class MangaAdapter(private val onClickListener: (id: String) -> Unit) :
+    PagingDataAdapter<Manga, MangaAdapter.MangeViewHolder>(diffUtil) {
 
     inner class MangeViewHolder(private val binding: ItemMangaBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
-                getItem(bindingAdapterPosition).apply {
+                getItem(absoluteAdapterPosition)?.apply {
                     onClickListener(id)
                 }
             }
@@ -42,7 +43,7 @@ class MangaAdapter(private val onClickListener: (id: String) -> Unit): ListAdapt
     }
 
     override fun onBindViewHolder(holder: MangeViewHolder, position: Int) {
-        getItem(position).let {
+        getItem(position)?.let {
             holder.onBind(it)
         }
     }

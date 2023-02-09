@@ -89,4 +89,8 @@ dependencies {
 
     // ViewBindingPropertyDelegate
     implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6'
+
+    //Paging 3
+    def paging_version = "3.1.1"
+    implementation "androidx.paging:paging-runtime:$paging_version"
 }

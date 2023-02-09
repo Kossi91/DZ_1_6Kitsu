@@ -25,8 +25,8 @@ class MangaDetailFragment : BaseFragment<FragmentMangaDetailBinding ,MangaDetail
     private fun subscribeToMangaDetail() = with(binding) {
         viewModel.getDetailManga(args.id).observe(viewLifecycleOwner) {
             when (it) {
-                is Resource.Failure -> {
-                    toast(it.message)
+                is Resource.Error -> {
+                    toast("Ошибка")
                 }
                 is Resource.Loading -> {
                     toast("Загрузка...")

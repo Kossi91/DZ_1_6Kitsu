@@ -2,22 +2,24 @@ package com.example.dz_1_6kitsu.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.dz_1_6kitsu.data.models.anime_models.Anime
+import com.example.dz_1_6kitsu.data.models.anime.Anime
 import com.example.dz_1_6kitsu.databinding.ItemAnimeBinding
 
 class AnimeAdapter(private val onClickListener: (id: String) -> Unit) :
-    ListAdapter<Anime, AnimeAdapter.AnimeViewHolder>(diffUtil) {
+    PagingDataAdapter<Anime, AnimeAdapter.AnimeViewHolder>(diffUtil) {
 
-    inner class AnimeViewHolder(private val binding: ItemAnimeBinding):
+    inner class AnimeViewHolder(private val binding: ItemAnimeBinding) :
         ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
-                getItem(bindingAdapterPosition).apply { onClickListener(id) }
+                getItem(absoluteAdapterPosition)?.apply {
+                    onClickListener(id)
+                }
             }
         }
 

@@ -1,4 +1,4 @@
-package com.example.dz_1_6kitsu.data.models.manga_models
+package com.example.dz_1_6kitsu.data.models.anime
 
 import com.google.gson.annotations.SerializedName
 
@@ -9,6 +9,8 @@ data class PosterImage(
     val original: String = "",
     @SerializedName("large")
     val large: String = "",
+    @SerializedName("tiny")
+    val tiny: String = "",
     @SerializedName("medium")
     val medium: String = ""
 )

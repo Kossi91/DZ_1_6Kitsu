@@ -13,7 +13,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun retrofitClient() = RetrofitClient()
+    fun provideRetrofitClient() = RetrofitClient()
 
     @Singleton
     @Provides

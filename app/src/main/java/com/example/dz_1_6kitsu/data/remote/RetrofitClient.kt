@@ -1,7 +1,7 @@
 package com.example.dz_1_6kitsu.data.remote
 
-import com.example.dz_1_6kitsu.data.remote.api.AnimeApiService
-import com.example.dz_1_6kitsu.data.remote.api.MangaApiService
+import com.example.dz_1_6kitsu.data.remote.apiservices.AnimeApiService
+import com.example.dz_1_6kitsu.data.remote.apiservices.MangaApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 class RetrofitClient {
 
     private val okHttpClient = OkHttpClient().newBuilder()
-        .addInterceptor(HttpLoggingInterceptor())
+        .addInterceptor(provideLoggingInterceptor())
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)

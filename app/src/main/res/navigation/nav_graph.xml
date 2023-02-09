@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/pagerFragment"
-        android:name="com.example.dz_1_6kitsu.ui.fragments.pager.PagerFragment"
+        android:name="com.example.dz_1_6kitsu.ui.fragments.home.HomeFragment"
         android:label="fragment_pager"
         tools:layout="@layout/fragment_pager" >
         <action

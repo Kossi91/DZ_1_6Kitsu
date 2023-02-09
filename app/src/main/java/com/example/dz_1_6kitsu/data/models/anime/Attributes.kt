@@ -1,7 +1,5 @@
-package com.example.dz_1_6kitsu.data.models.manga_models
+package com.example.dz_1_6kitsu.data.models.anime
 
-import com.example.dz_1_6kitsu.data.models.anime_models.PosterImage
-import com.example.dz_1_6kitsu.data.models.anime_models.Titles
 import com.google.gson.annotations.SerializedName
 
 data class Attributes(
